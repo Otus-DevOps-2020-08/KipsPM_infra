@@ -27,5 +27,4 @@ ProxyJump bastion
 
 3.Для запуска VPN установил iptables
 домен с сертификатом: https://178.154.226.155.sslip.io/
-bastion_ip: 178.154.226.155
-someinternalhost_ip: 10.130.0.11
+bastion_ip = 178.154.226.155 someinternalhost_ip = 10.130.0.11

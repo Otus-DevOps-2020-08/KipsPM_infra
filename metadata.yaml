@@ -7,12 +7,12 @@ apt:
   preserve_source_list: true
 
 users:
-  name: appuser
-  groups: sudo
-  shell: /bin/bash
-  sudo: ['ALL=(ALL) NOPASSWD:ALL']
-  ssh-authorized-keys:
-    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfRuCnx1PxmJek4mv+So7f/cXvPjjmcbCym37ioEkXkAa+lcHQzkUw+ejBdpMYaiWUN6gfEi2VoidYt0eaAOMeLiqrMJbWHtpYqelPg5Y8/hlUDMh2RvIEXdFGdbSEPGw8x3XENdpOemJFibD82ZMyjvcBSUJOsieGkeo9JTWWS6dpG2fI1PRuMqcE6VN313r1GVrxU8VxlgT0sTx/4+zu/8QyIh7krNn3uvzDjtYMRfHPCegKpQ1qlklljucYi2ZAjqgaY+OKXoQvX6EQSggGU7NVzQhly07ZOZZgEOOeR1Vx2hYEq4dzpSUhQ6MvuAS15LBIBV0nimFDR77XMmYN appuser
+  - name: appuser
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfRuCnx1PxmJek4mv+So7f/cXvPjjmcbCym37ioEkXkAa+lcHQzkUw+ejBdpMYaiWUN6gfEi2VoidYt0eaAOMeLiqrMJbWHtpYqelPg5Y8/hlUDMh2RvIEXdFGdbSEPGw8x3XENdpOemJFibD82ZMyjvcBSUJOsieGkeo9JTWWS6dpG2fI1PRuMqcE6VN313r1GVrxU8VxlgT0sTx/4+zu/8QyIh7krNn3uvzDjtYMRfHPCegKpQ1qlklljucYi2ZAjqgaY+OKXoQvX6EQSggGU7NVzQhly07ZOZZgEOOeR1Vx2hYEq4dzpSUhQ6MvuAS15LBIBV0nimFDR77XMmYN appuser
 
 packages:
   - ruby-full

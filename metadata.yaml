@@ -19,6 +19,8 @@ packages:
   - ruby-bundler
   - build-essential
   - git
+  - apt-transport-https
+  - ca-certificates
 
 runcmd:
   - wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -

@@ -1,6 +1,6 @@
 # KipsPM_infra
 
-testapp_IP = 130.193.49.88
+testapp_IP = 178.154.226.126
 testapp_port = 9292
 
 1. Created scripts for autoinstall:

@@ -1,31 +1,23 @@
 # KipsPM_infra
-KipsPM Infra repository
+
+testapp_IP = 130.193.49.88
+testapp_port = 9292
+
+1. Created scripts for autoinstall:
+deploy.sh
+install_ruby.sh
+install_mongodb.sh
+
+2. Autoinstall via metadata.yaml:
+yc compute instance create \
+  --name reddit-app2 \
+  --hostname reddit-app2 \
+  --memory=4 \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+  --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+  --metadata serial-port-enable=1 \
+  --metadata-from-file user-data=./metadata.yaml
+
 
 bastion_IP = 178.154.226.155
 someinternalhost_IP = 10.130.0.11
-
-#HomeWork #3:
-1. Connection to remote host without external IP in 1 string:
-ssh -i ~/.ssh/id_rsa_yandex -AJ  appuser@178.154.226.155 appuser@10.130.0.11
-
-
-2. Changed ~/.ssh/config like this to connect via ssh sominternalhost:
-### The Bastion Host
-Host bastion
-HostName 178.154.226.155
-User appuser
-ForwardAgent yes
-IdentityFile ~/.ssh/id_rsa_yandex
-Port 22
-
-### The Remote Host
-Host someinternalhost
-User appuser
-ForwardAgent yes
-IdentityFile ~/.ssh/id_rsa_yandex
-HostName 10.130.0.11
-Port 22
-ProxyJump bastion
-
-3.
-https://178.154.226.155.sslip.io/   #fixed ssl error via sslip.io

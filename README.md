@@ -21,3 +21,20 @@ yc compute instance create \
 
 bastion_IP = 178.154.226.155
 someinternalhost_IP = 10.130.0.11
+
+#Homework 5
+
+1. To start packer template:
+packer build -var-file=variables.json ./ubuntu16.json
+2. Fake variables in variables.json.example
+3. To start baked packer template:
+packer build -var-file=variables.json ./immutable.json
+4. To start VM with baked template use config-scripts/create-reddit-vm.sh
+yc compute instance create \
+name reddit-full-instance \
+hostname reddit-full-instance \
+memory=4 \
+create-boot-disk image-family=reddit-full,size=10GB \
+network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+metadata serial-port-enable=1 \
+ssh-key ~/.ssh/appuser.pub

@@ -1,5 +1,5 @@
 {
-    "service_account_key_file": "long",
+    "service_account_key_file": "key",
     "folder_id": "live",
     "source_image_family": "belarus"
 }

@@ -38,3 +38,10 @@ create-boot-disk image-family=reddit-full,size=10GB \
 network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
 metadata serial-port-enable=1 \
 ssh-key ~/.ssh/appuser.pub
+
+#Homework 6
+1. main.tf contains code to create VM instnces
+2. lb.tf contains code to create LB and target group for LB.
+3. variables.tf contains (u will not believe) varibles ;) terraform.tfvars.example contains fake info.
+4. outputs.tf contain output information: IP-address of LB and VM's.
+5. Я использовал count, чтобы можно было горизонтально масшабировать окружение. Пришлось сильно повозиться с ошибкой цикла, проблема оказалась в настройке сетевого доступа.

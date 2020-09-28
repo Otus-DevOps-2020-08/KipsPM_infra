@@ -7,6 +7,7 @@ echo install https support
 apt-get install apt-transport-https ca-certificates
 echo "update apt"
 sudo apt-get update
+sleep 20
 echo "install mongodb package"
 sudo apt-get install -y mongodb-org
 echo "start mongodb"

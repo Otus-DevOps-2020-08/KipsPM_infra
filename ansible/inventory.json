@@ -2,14 +2,14 @@
     "app": {
       "hosts": {
         "appserver": {
-          "ansible_host": "178.154.225.113"
+          "ansible_host": "84.201.172.198"
         }
       }
     },
     "db": {
       "hosts": {
         "dbserver": {
-          "ansible_host": "130.193.36.29"
+          "ansible_host": "84.201.174.99"
         }
       }
     }

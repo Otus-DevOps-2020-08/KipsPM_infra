@@ -33,20 +33,20 @@ connection {
     private_key = file(var.private_key_path)
   }
 
-  provisioner "file" {
-    source      = "../files/puma.service"
-    destination = "/tmp/puma.service"
-  }
-
-  provisioner "file" {
-    source      = "../files/deploy.sh"
-    destination = "/tmp/deploy.sh"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/deploy.sh",
-      "sudo /tmp/deploy.sh ${var.db_url}",
-    ]
-  }
+#  provisioner "file" {
+#    source      = "../files/puma.service"
+#    destination = "/tmp/puma.service"
+# }
+#
+#  provisioner "file" {
+#    source      = "../files/deploy.sh"
+#    destination = "/tmp/deploy.sh"
+#  }
+#
+#  provisioner "remote-exec" {
+#    inline = [
+#      "chmod +x /tmp/deploy.sh",
+#      "sudo /tmp/deploy.sh ${var.db_url}",
+#    ]
+#  }
 }

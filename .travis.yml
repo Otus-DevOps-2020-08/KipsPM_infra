@@ -1,28 +1,9 @@
 dist: trusty
 sudo: required
 language: bash
-env:
-  - ANSIBLE_VER=2.6.0 ANSLINT_VER=4.3.5 PACKER_VER=1.6.2 TERRAFORM_VER=0.12.8 TFLINT_VER=0.20.2
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-08/run.sh | bash
 - touch ~/.ssh/appuser.pub && touch ~/.ssh/appuser
-- cd /tmp
-- curl -O https://releases.hashicorp.com/packer/${PACKER_VER}/packer_${PACKER_VER}_linux_amd64.zip
-- unzip packer_${PACKER_VER}_linux_amd64.zip
-- rm /tmp/packer_${PACKER_VER}_linux_amd64.zip
-- sudo  mv /tmp/packer /usr/bin
-- sudo chmod +x /usr/bin/packer
-- curl -O https://releases.hashicorp.com/terraform/${TERRAFORM_VER}/terraform_${TERRAFORM_VER}_linux_amd64.zip
-- unzip terraform_${TERRAFORM_VER}_linux_amd64.zip
-- rm /tmp/terraform_${TERRAFORM_VER}_linux_amd64.zip
-- sudo mv /tmp/terraform /usr/bin
-- chmod +x /usr/bin/terraform
-- curl -OL https://github.com/wata727/tflint/releases/download/v${TFLINT_VER}/tflint_linux_amd64.zip
-- unzip tflint_linux_amd64.zip
-- rm /tmp/tflint_linux_amd64.zip
-- sudo mv /tmp/tflint /usr/bin
-- sudo chmod +x /usr/bin/tflint
-- sudo pip install ansible==${ANSIBLE_VER} ansible-lint==${ANSLINT_VER}
 - cd ${TRAVIS_BUILD_DIR}
 - packer validate -var-file=packer/variables.json.example packer/app.json
 - packer validate -var-file=packer/variables.json.example packer/db.json

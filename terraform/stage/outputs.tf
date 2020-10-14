@@ -12,5 +12,5 @@ resource "local_file" "AnsibleInventory" {
   external_ip_address_db = module.db.external_ip_address_db
  }
  )
- filename = "../../ansible/inventory.json"
+ filename = "../../ansible/environments/stage/inventory.json"
 }

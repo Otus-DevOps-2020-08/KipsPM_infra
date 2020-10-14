@@ -22,7 +22,8 @@ before_install:
 - rm /tmp/tflint_linux_amd64.zip
 - sudo mv /tmp/tflint /usr/bin
 - sudo chmod +x /usr/bin/tflint
-- sudo apt install pip
+- sudo apt-get install -yqq python-pip
+- sudo -H python -m pip install -q --upgrade pip setuptools wheel
 - sudo pip install ansible==${ANSIBLE_VER} ansible-lint==${ANSLINT_VER}
 - cd ${TRAVIS_BUILD_DIR}
 - packer validate -var-file=packer/variables.json.example packer/app.json

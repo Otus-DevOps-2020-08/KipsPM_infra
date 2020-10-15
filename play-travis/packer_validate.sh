@@ -1,8 +1,7 @@
 #!/bin/bash
 
 echo "Validate packer"
-cd packer
-packer validate -var-file=variables.json.example app.json
-packer validate -var-file=variables.json.example db.json
-packer validate -var-file=variables.json.example immutable.json
-packer validate -var-file=variables.json.example ubuntu16.json
+packer validate -var-file=packer/variables.json.example packer/app.json
+packer validate -var-file=packer/variables.json.example packer/db.json
+packer validate -var-file=packer/variables.json.example packer/immutable.json
+packer validate -var-file=packer/variables.json.example packer/ubuntu16.json

@@ -20,19 +20,19 @@ touch ~/.ssh/appuser.pub && touch ~/.ssh/appuser
 #sudo apt-get install -yqq python-pip
 #sudo -H python -m pip install -q --upgrade pip setuptools wheel
 #sudo pip install ansible==${ANSIBLE_VER} ansible-lint==${ANSLINT_VER}
-cd ${TRAVIS_BUILD_DIR}
 packer validate -var-file=packer/variables.json.example packer/app.json
 packer validate -var-file=packer/variables.json.example packer/db.json
 cd packer/
-packer validate -var-file=variables.json.example immutable.json
-packer validate -var-file=variables.json.example ubuntu16.json
-cd ${TRAVIS_BUILD_DIR}/ansible
+packer validate -var-file=packer/variables.json.example packer/immutable.json
+packer validate -var-file=packer/variables.json.example packer/ubuntu16.json
+cd ansible
 ansible-lint playbooks/site.yml --exclude=roles/jdauphant.nginx
-cd ${TRAVIS_BUILD_DIR}/terraform/stage
+cd terraform/stage
 terraform init -backend=false
-terraform validate -var-file=terraform.tfvars.example
-tflint --var-file=terraform.tfvars.example
-cd ${TRAVIS_BUILD_DIR}/terraform/prod
+terraform validate
+tflint
+cd terraform/prod
 terraform init -backend=false
-terraform validate -var-file=terraform.tfvars.example
-tflint --var-file=terraform.tfvars.example
+terraform validate
+tflint
+echo "please"

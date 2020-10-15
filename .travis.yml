@@ -5,7 +5,7 @@ env:
   - ANSIBLE_VER=2.6.0 ANSLINT_VER=3.4.23 PACKER_VER=1.6.4 TERRAFORM_VER=0.12.19 TFLINT_VER=0.11.2
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-08/run.sh | bash
-- docker exec hw-test bash -c './self_checks.sh'
+- docker exec hw-test bash -c 'play-travis/self_checks.sh'
 notifications:
   slack:
     rooms:

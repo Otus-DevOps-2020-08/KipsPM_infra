@@ -21,11 +21,11 @@ touch ~/.ssh/appuser.pub && touch ~/.ssh/appuser
 #sudo -H python -m pip install -q --upgrade pip setuptools wheel
 #sudo pip install ansible==${ANSIBLE_VER} ansible-lint==${ANSLINT_VER}
 cd ${TRAVIS_BUILD_DIR}
-packer validate -var-file=packer/variables.json.example packer/app.json || true
-packer validate -var-file=packer/variables.json.example packer/db.json || true
+packer validate -var-file=packer/variables.json.example packer/app.json
+packer validate -var-file=packer/variables.json.example packer/db.json
 cd packer/
-packer validate -var-file=variables.json.example immutable.json || true
-packer validate -var-file=variables.json.example ubuntu16.json || true
+packer validate -var-file=variables.json.example immutable.json
+packer validate -var-file=variables.json.example ubuntu16.json
 cd ${TRAVIS_BUILD_DIR}/ansible
 ansible-lint playbooks/site.yml --exclude=roles/jdauphant.nginx
 cd ${TRAVIS_BUILD_DIR}/terraform/stage

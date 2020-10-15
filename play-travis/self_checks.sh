@@ -22,7 +22,6 @@ touch ~/.ssh/appuser.pub && touch ~/.ssh/appuser
 #sudo pip install ansible==${ANSIBLE_VER} ansible-lint==${ANSLINT_VER}
 packer validate -var-file=packer/variables.json.example packer/app.json
 packer validate -var-file=packer/variables.json.example packer/db.json
-cd packer/
 packer validate -var-file=packer/variables.json.example packer/immutable.json
 packer validate -var-file=packer/variables.json.example packer/ubuntu16.json
 cd ansible

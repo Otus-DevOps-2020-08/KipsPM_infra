@@ -75,3 +75,16 @@ ssh-key ~/.ssh/appuser.pub
 6. Зашифровано 2 чувствительных файла с помощью ansible vault.
 7. Для первого задания со звездочкой переиспользовано динамическое инвентори для окружений stage и prod.
 8. Для второго задания со звездочкой в файл .travis.yml был добавлен вызов скриптов ansible_validate.sh, packer_validate.sh, terraform.sh. Все проверки успешно пройдены с 25 раза :)
+
+#Homework 11
+1. Установлен vagrant.
+2. Переработаны роли для провижионинга в Vagrant.
+3. Выполнено задание со звездочкой для доступа к приложению по 80 порту через nginx.
+4. Установлены molecule, testinfra. Молекула нужна версии 2.х
+5. Настроены тесты для молекулы, протестирована роль db.
+6. Настроена сборка Packer'ом с использование ролей app и db.
+ansible-playbook playbooks/packer_db.yml --limit db --tags install
+ansible-playbook playbooks/packer_app.yml --limit app --tags ruby
+packer build -var-file=packer/variables.json packer/db.json
+packer build -var-file=packer/variables.json packer/app.json
+7. Второе задание со звездочкой сделать не представляется возможным из-за отсутствия драйвера молекулы для Яндекса.

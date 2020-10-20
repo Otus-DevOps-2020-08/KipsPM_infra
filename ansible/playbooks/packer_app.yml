@@ -1,9 +1,8 @@
+- import_playbook: base.yml
+
 - name: Install Ruby && Bundler
   hosts: all
   become: true
-  tasks:
-  - name: update apt
-    apt: update_cache=yes force_apt_get=yes cache_valid_time=360
-  - name: Install ruby & rubygems
-    apt:
-      name: ['ruby-full', 'ruby-bundler', 'build-essential']
+
+  roles:
+    - app
